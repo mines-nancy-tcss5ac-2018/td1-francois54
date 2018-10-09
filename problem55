@@ -1,0 +1,40 @@
+    
+def palyndrome(chiffre):
+    i=0
+    L=list(str(chiffre))
+    while(i<len(L)):
+        if L[i]!=L[len(L)-(i+1)]:
+            return False
+        else:
+            i+=1
+    return True
+        
+
+def lychrel(chiffre):
+    i=0
+    n1=str(chiffre)
+    L1=list(n1)
+    n2=''
+    for k in range(len(L1)-1,-1,-1):
+        n2+=L1[k]
+    while i<=50:
+        n3=int(n1)+int(n2)
+        if palyndrome(n3):
+            return False
+        else:
+            n1=str(n3)
+            L1=list(n1)
+            n2=''
+            for k in range(len(L1)-1,-1,-1):
+                n2+=L1[k]
+            i+=1
+    return True
+    
+def solve(n):
+    i=10
+    s=0
+    while i<=n:
+        if lychrel(i):
+            s+=1
+        i+=1
+    return s
