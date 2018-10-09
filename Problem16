@@ -1,0 +1,7 @@
+def problem16(n):
+    somme=0
+    A=str(2**n)
+    for k in range(len(A)):
+        somme+=int(A[k])
+    return somme
+assert problem16(15)==26
